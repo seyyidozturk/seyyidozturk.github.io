@@ -4,7 +4,7 @@ const textArray = [
     "Backend ve CRM sistemleri için çözümler üretiyorum.",
     "İş süreçlerini dijitalleştiren CRM çözümleri ile değer katıyorum.",
     "Modern web uygulamaları geliştiriyorum."
-];
+]; 
 let index = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -20,7 +20,7 @@ function typeEffect() {
         charIndex++;
     }
 
-    let typeSpeed = 50;
+    let typeSpeed = 100;
 
     if (isDeleting) typeSpeed /= 2;
     if (!isDeleting && charIndex === currentText.length) {
@@ -88,6 +88,27 @@ document.querySelector('.contact-form form').addEventListener('submit', function
     e.preventDefault();
     alert('Mesajınız başarıyla gönderildi! En kısa sürede dönüş yapacağım.');
     this.reset();
+});
+
+// Scroll button smooth scroll
+document.querySelector('.scroll-button').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
+});
+
+// Hamburger menü toggle
+const hamburger = document.querySelector('.hamburger-menu');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+// Menüye tıklayınca kapanması için
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
 });
 
 // Start typing effect
